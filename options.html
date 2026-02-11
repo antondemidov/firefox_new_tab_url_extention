@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Tab URL - Options</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #f5f5f5;
+    }
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1 {
+      margin-top: 0;
+      color: #333;
+      font-size: 1.5rem;
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #555;
+      font-weight: 500;
+    }
+    input[type="text"],
+    input[type="password"],
+    input[type="url"] {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+    input[type="text"]:focus,
+    input[type="password"]:focus,
+    input[type="url"]:focus {
+      outline: none;
+      border-color: #0060df;
+    }
+    input[type="checkbox"] {
+      margin-right: 0.5rem;
+    }
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      font-weight: normal;
+      cursor: pointer;
+    }
+    button {
+      background: #0060df;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: 500;
+    }
+    button:hover {
+      background: #0050c9;
+    }
+    button:active {
+      background: #0040a8;
+    }
+    .error {
+      color: #d70022;
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
+      display: none;
+    }
+    .error.show {
+      display: block;
+    }
+    .status {
+      margin-top: 1rem;
+      padding: 0.75rem;
+      border-radius: 4px;
+      display: none;
+    }
+    .status.show {
+      display: block;
+    }
+    .status.success {
+      background: #e5f7e5;
+      color: #0a7f0a;
+      border: 1px solid #0a7f0a;
+    }
+    .status.error {
+      background: #ffe5e5;
+      color: #d70022;
+      border: 1px solid #d70022;
+    }
+    .warning {
+      background: #fff4e5;
+      border: 1px solid #ff9400;
+      border-radius: 4px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      color: #663c00;
+    }
+    .warning strong {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .auth-fields {
+      margin-left: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid #e5e5e5;
+    }
+    input:disabled {
+      background: #f5f5f5;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>New Tab URL Settings</h1>
+
+    <form id="optionsForm">
+      <div class="form-group">
+        <label for="customUrl">Custom URL</label>
+        <input
+          type="url"
+          id="customUrl"
+          name="customUrl"
+          placeholder="https://example.com"
+          required
+        >
+        <div class="error" id="urlError"></div>
+      </div>
+
+      <div class="form-group">
+        <label class="checkbox-label">
+          <input type="checkbox" id="enableBasicAuth" name="enableBasicAuth">
+          <span>Enable HTTP Basic Authentication</span>
+        </label>
+      </div>
+
+      <div class="auth-fields" id="authFields">
+        <div class="warning">
+          <strong>Security Warning</strong>
+          Credentials are stored unencrypted in browser storage. Only use with HTTPS URLs and trusted services.
+        </div>
+
+        <div class="form-group">
+          <label for="authUsername">Username</label>
+          <input
+            type="text"
+            id="authUsername"
+            name="authUsername"
+            autocomplete="username"
+          >
+          <div class="error" id="usernameError"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="authPassword">Password</label>
+          <input
+            type="password"
+            id="authPassword"
+            name="authPassword"
+            autocomplete="current-password"
+          >
+          <div class="error" id="passwordError"></div>
+        </div>
+      </div>
+
+      <button type="submit">Save Settings</button>
+
+      <div class="status" id="status"></div>
+    </form>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

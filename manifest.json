@@ -1,0 +1,47 @@
+{
+  "manifest_version": 2,
+  "name": "New Tab URL",
+  "version": "1.0.0",
+  "description": "Override the default new tab page with a custom URL. Supports optional HTTP Basic Authentication.",
+  "author": "Your Name",
+  "homepage_url": "https://github.com/yourusername/new-tab-url",
+
+  "permissions": [
+    "tabs",
+    "storage",
+    "webRequest",
+    "webRequestBlocking",
+    "<all_urls>"
+  ],
+
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+
+  "browser_action": {
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png"
+    },
+    "default_title": "New Tab URL Settings"
+  },
+
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-96.png",
+    "128": "icons/icon-128.png"
+  }
+}
