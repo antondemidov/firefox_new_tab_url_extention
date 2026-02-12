@@ -3,8 +3,18 @@
   "name": "New Tab URL",
   "version": "1.0.0",
   "description": "Override the default new tab page with a custom URL. Supports optional HTTP Basic Authentication.",
-  "author": "Your Name",
-  "homepage_url": "https://github.com/yourusername/new-tab-url",
+  "author": "Anton Demydov",
+  "homepage_url": "https://github.com/antondemidov/firefox_new_tab_url_extention",
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "new-tab-url@antondemidov.github.io",
+      "strict_min_version": "109.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
 
   "permissions": [
     "tabs",
